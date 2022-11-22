@@ -10,15 +10,12 @@ pipeline {
     varfile= "config/${params.ENVIRONMENT}.tfvars"
     AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
     AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
-    TF_BACKEND_ACCOUNT = "${params.TF_BACKEND_ACCOUNT}"
-    TF_BACKEND_KEY = "terraform.${params.ENVIRONMENT}.tfstate"
-    TF_BACKEND_LOCATION = "us-east-1"
   }
 
   stages {
     stage('Init') {
       steps {
-        sh "terraform init -reconfigure"
+        sh "terraform init -backend-config config/${params.ENVIRONMENT}-backend.tfvars"
         echo 'Initialization done'
       }
     }

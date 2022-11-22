@@ -15,8 +15,7 @@ provider "aws" {
 terraform {
 
   backend "s3" {
-    bucket = "terraformstatebermtec"
-    key    = "terraform.tfstate"
+    bucket = "bermtecterraformstate"
     region = "us-east-1"
   }
 }
