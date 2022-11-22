@@ -51,7 +51,7 @@ resource "aws_instance" "linux" {
   vpc_security_group_ids = [aws_security_group.sg.id]
 
   tags = {
-    Name = "tftest"
+    Name = "terraformtest"
 
   }
 }
