@@ -5,11 +5,6 @@ pipeline {
     terraform 'terraform'
   }
 
-  parameters {
-    password (name: 'AWS_ACCESS_KEY_ID')
-    password (name: 'AWS_SECRET_ACCESS_KEY')
-  }
-
   environment {
     varfile= "config/${params.ENVIRONMENT}.tfvars"
     AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
