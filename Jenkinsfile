@@ -23,6 +23,13 @@ pipeline {
       }
     }
 
+    stage('Validate') {
+      steps {
+        sh "terraform validate"
+        echo 'Validation done'
+      }
+    }
+
     stage('plan') {
       steps {
         sh "terraform plan -var-file='${varfile}'"
