@@ -1,9 +1,7 @@
 pipeline {
   agent any
 
-  tools {
-    terraform 'terraform'
-  }
+
 
   environment {
     varfile= "config/${params.ENVIRONMENT}.tfvars"
